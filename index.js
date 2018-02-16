@@ -33,6 +33,11 @@ var music = mediaController.getMusicPaths();
 
 io.on('connection', function(socket){
   console.log('a user connected');
+  io.emit('newSettings', {
+    background: '',
+    music: '',
+    characters: []
+  })
   socket.on('newSettings', function(settings) {
     io.emit('newSettings', settings);
     console.log(settings);
@@ -53,6 +58,14 @@ app.get('/background/city/:randomToken', function(req, res) {
 
 app.get('/background/dangeoun/:randomToken', function(req, res) {
   res.sendFile(backgrounds.dangeoun[Math.floor(Math.random() * backgrounds.dangeoun.length)]);
+});
+
+app.get('/background/desert/:randomToken', function(req, res) {
+  res.sendFile(backgrounds.desert[Math.floor(Math.random() * backgrounds.desert.length)]);
+});
+
+app.get('/background/darkForest/:randomToken', function(req, res) {
+  res.sendFile(backgrounds.darkForest[Math.floor(Math.random() * backgrounds.darkForest.length)]);
 });
 
 app.get('/background/room/:randomToken', function(req, res) {

@@ -7,10 +7,10 @@ var characterSchema = mongoose.Schema({
         index: true
     },
     ac: {
-        type: Number
+        type: String
     },
     hp: {
-        type: Number
+        type: String
     }, 
     details: {
         type: String

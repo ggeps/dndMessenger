@@ -13,7 +13,9 @@ var media = {
             city: [],
             dangeoun: [],
             room: [],
-            battle: []
+            battle: [],
+            desert: [],
+            darkForest: []
         };
 
         var forest = fs.readdirSync(backgroundFolder + 'forest/');
@@ -33,15 +35,27 @@ var media = {
         
         var room = fs.readdirSync(backgroundFolder + 'room/');
         room.forEach(function (value) {
-            background.room.push(path.resolve(backgroundFolder + 'room' + value));
+            background.room.push(path.resolve(backgroundFolder + 'room/' + value));
         });
 
         var battle = fs.readdirSync(backgroundFolder + 'battle/');
         battle.forEach(function (value) {
             background.battle.push(path.resolve(backgroundFolder + 'battle' + value));
         });
+
+        var desert = fs.readdirSync(backgroundFolder + 'desert/');
+        desert.forEach(function (value) {
+            background.desert.push(path.resolve(backgroundFolder + 'desert/' + value));
+        });
+
+        var darkForest = fs.readdirSync(backgroundFolder + 'darkForest/');
+        darkForest.forEach(function (value) {
+            background.darkForest.push(path.resolve(backgroundFolder + 'darkForest/' + value));
+        });
+
         return background;
     },
+
     getMusicPaths: function() {
         var music = {
             adventure: [],
@@ -68,6 +82,7 @@ var media = {
         return music;
 
     },
+
     getCharacterImage: function(name) {
         return path.resolve(characterFolder + name + '.png');
     }
